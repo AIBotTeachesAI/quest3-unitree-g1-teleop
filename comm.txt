@@ -4,6 +4,7 @@ cd /home/stickbot/projects/hack_groot_sonic/GR00T-WholeBodyControl/gear_sonic_de
 bash deploy.sh sim --input-type zmq_manager
 
 
+-- only for real
 cd /home/stickbot/projects/hack_groot_sonic/GR00T-WholeBodyControl/gear_sonic_deploy
 bash deploy.sh real --input-type zmq_manager
 
