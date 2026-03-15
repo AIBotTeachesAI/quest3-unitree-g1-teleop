@@ -1,0 +1,22 @@
+python gear_sonic/scripts/run_sim_loop.py
+
+cd /home/stickbot/projects/hack_groot_sonic/GR00T-WholeBodyControl/gear_sonic_deploy
+bash deploy.sh sim --input-type zmq_manager
+
+
+cd /home/stickbot/projects/hack_groot_sonic/GR00T-WholeBodyControl/gear_sonic_deploy
+bash deploy.sh real --input-type zmq_manager
+
+bash run_quest3_server.sh
+
+
+
+Correct order:
+Terminal 1 — MuJoCo sim (robot floating)
+Terminal 2 — bash deploy.sh sim --input-type zmq_manager (wait for "Init done")
+Terminal 3 — bash run_quest3_server.sh
+Connect Quest 3 — open browser, connect WS, Start VR
+Get into calibration pose (L-shape arms)
+Press Y — policy starts, robot is still floating but policy is now active
+NOW press 9 in MuJoCo — robot drops, policy catches it and stabilizes
+Rule: Always press Y before 9. Policy must be running first, then drop.
